@@ -31,7 +31,6 @@
         <servlet-name>archServlet</servlet-name>
         <url-pattern>*.json</url-pattern>
     </servlet-mapping>
-    
 
     <session-config>
         <session-timeout>
@@ -47,6 +46,16 @@
     <filter-mapping>
         <filter-name>httpHeadFilter</filter-name>
         <url-pattern>*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>SpringOpenEntityManagerInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>SpringOpenEntityManagerInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <welcome-file-list>

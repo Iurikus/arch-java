@@ -24,7 +24,6 @@ public class UserAccountsTest {
     UserService userService;
 
     @Test
-//    @Transactional
     public void testAddAccount() {
 
         userService.deleteAll();

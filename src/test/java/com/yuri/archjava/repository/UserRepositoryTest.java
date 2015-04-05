@@ -1,5 +1,6 @@
 package com.yuri.archjava.repository;
 
+import com.yuri.archjava.dto.AdminListItemDto;
 import com.yuri.archjava.model.User;
 import com.yuri.archjava.service.UserService;
 import org.junit.Test;
@@ -75,5 +76,11 @@ public class UserRepositoryTest {
         assertEquals(password, user.getPassword());
         assertTrue(user.getRegistrationDate() != null);
 
+    }
+
+    @Test
+    public void getLogsTest() {
+        List<AdminListItemDto> list = userService.getUserRecords(0, 100);
+        assertEquals(3, list.size());
     }
 }

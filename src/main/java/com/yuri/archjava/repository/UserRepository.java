@@ -8,9 +8,7 @@ import java.util.List;
 /**
  * Created by yuri on 19.03.2015.
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryCustom {
 
     List<User> findByEmail(String email);
-
-
 }

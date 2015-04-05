@@ -38,7 +38,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <jpa:repositories base-package="com.yuri.archjava.repository" />
+    <jpa:repositories base-package="com.yuri.archjava.repository"/>
 
     <!--MySql-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

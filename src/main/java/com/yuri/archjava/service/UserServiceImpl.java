@@ -1,5 +1,6 @@
 package com.yuri.archjava.service;
 
+import com.yuri.archjava.dto.AdminListItemDto;
 import com.yuri.archjava.model.User;
 import com.yuri.archjava.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     @Override
     public User save(User user) {
@@ -47,5 +48,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteAll() {
         userRepository.deleteAllInBatch();
+    }
+
+    @Override
+    public long getCount() {
+        return userRepository.count();
+    }
+
+    @Override
+    public List<AdminListItemDto> getUserRecords(int start, int size) {
+        return userRepository.findUserRecords(start, size);
     }
 }

@@ -1,16 +1,17 @@
 package com.yuri.archjava.utils;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by yuri on 22.03.2015.
  */
-public class JsonJTableResponce {
+public class JsonJTableResponse {
     private String DisplayText;
 
     private String Value;
 
-    public JsonJTableResponce(String DisplayText, String Value) {
+    public JsonJTableResponse(String DisplayText, String Value) {
         this.DisplayText = DisplayText;
         this.Value = Value;
     }

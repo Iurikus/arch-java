@@ -1,5 +1,6 @@
 package com.yuri.archjava.service;
 
+import com.yuri.archjava.dto.AdminListItemDto;
 import com.yuri.archjava.model.User;
 import org.springframework.data.domain.Page;
 
@@ -21,5 +22,9 @@ public interface UserService {
     Page<User> findAll(int page, int size);
 
     void deleteAll();
+
+    long getCount();
+
+    List<AdminListItemDto> getUserRecords(int start, int size);
 
 }

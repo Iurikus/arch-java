@@ -1,5 +1,6 @@
 package com.yuri.archjava.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Email;
@@ -53,6 +54,7 @@ public class User {
         this.id = id;
     }
 
+    @JsonProperty("Email")
     public String getEmail() {
         return email;
     }
@@ -69,6 +71,7 @@ public class User {
         this.password = password;
     }
 
+//    @JsonProperty("RegistrationDate")
     public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
