@@ -5,10 +5,10 @@ package com.yuri.archjava.dto;
  */
 public class AdminListItemDto {
     private String email;
-    private String balance;
+    private int balance;
     private String date;
 
-    public AdminListItemDto(String email, String balance, String date) {
+    public AdminListItemDto(String email, int balance, String date) {
         this.email = email;
         this.balance = balance;
         this.date = date;
@@ -22,11 +22,11 @@ public class AdminListItemDto {
         this.email = email;
     }
 
-    public String getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 

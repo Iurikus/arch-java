@@ -41,7 +41,7 @@ public class UserPagingRepositoryTest {
         User user;
 
         for (int i = 0; i < 10; i++) {
-            user = createUser(i);
+            user = userService.createTestUser(i);
             userService.save(user);
             users.add(user);
         }
@@ -81,13 +81,5 @@ public class UserPagingRepositoryTest {
         page = userService.findAll(3, 3);
         assertEquals(users.get(9) , page.getContent().get(0));
         assertEquals(1, page.getNumberOfElements());
-    }
-
-    public static User createUser(int id) {
-        User user = new User();
-        user.setPassword("passw"+id);
-        user.setEmail(id+"sse@mail.com");
-        user.setRegistrationDate(getCurrentLocalDateTimeWithoutMillis());
-        return user;
     }
 }

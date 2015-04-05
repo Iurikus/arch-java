@@ -49,7 +49,7 @@ public class AdminListController {
         int listCount = (int) userService.getCount();
 
 //        userList = userService.findAll(0,100).getContent();
-        userList = userService.getUserRecords(0, 100);
+        userList = userService.getUserRecords(jtStartIndex, jtPageSize);
         response = new UsersJsonJTableResponse("OK", userList, listCount);
 
         return response;

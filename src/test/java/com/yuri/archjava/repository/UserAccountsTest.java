@@ -28,7 +28,7 @@ public class UserAccountsTest {
 
         userService.deleteAll();
 
-        User user = UserPagingRepositoryTest.createUser(1);
+        User user = userService.createTestUser(1);
 
 //        userService.save(user);
 
@@ -44,6 +44,11 @@ public class UserAccountsTest {
         userService.save(user);
         System.out.println("delete user");
         userService.deleteAll();
+    }
+
+    @Test
+    public void pupulateDBTest() {
+        userService.prepareTestData(10);
     }
 
 }

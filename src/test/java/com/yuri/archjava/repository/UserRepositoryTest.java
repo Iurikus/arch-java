@@ -3,6 +3,7 @@ package com.yuri.archjava.repository;
 import com.yuri.archjava.dto.AdminListItemDto;
 import com.yuri.archjava.model.User;
 import com.yuri.archjava.service.UserService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +61,6 @@ public class UserRepositoryTest {
 
     @Test
     public void findByEmail() {
-
         String email = "dfadfs@fdfs.coom";
         String password = "dfasdfagf";
         LocalDateTime date = getCurrentLocalDateTimeWithoutMillis();
@@ -75,12 +75,5 @@ public class UserRepositoryTest {
         assertEquals(email, user.getEmail());
         assertEquals(password, user.getPassword());
         assertTrue(user.getRegistrationDate() != null);
-
-    }
-
-    @Test
-    public void getLogsTest() {
-        List<AdminListItemDto> list = userService.getUserRecords(0, 100);
-        assertEquals(3, list.size());
     }
 }

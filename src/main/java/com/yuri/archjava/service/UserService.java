@@ -27,4 +27,7 @@ public interface UserService {
 
     List<AdminListItemDto> getUserRecords(int start, int size);
 
+    void prepareTestData(int count);
+
+    User createTestUser(int id);
 }
