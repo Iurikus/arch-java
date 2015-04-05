@@ -24,7 +24,7 @@ public class AdminListController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/admin/list", method = RequestMethod.POST)
+   /* @RequestMapping(value = "/admin/list", method = RequestMethod.POST)
     @ResponseBody
     public UsersJsonJTableResponse getList(@RequestParam int jtStartIndex, @RequestParam int jtPageSize) {
         UsersJsonJTableResponse response = null;
@@ -37,12 +37,12 @@ public class AdminListController {
 
 
         return response;
-    }
+    }*/
 
 
     @RequestMapping(value = "/admin/listall", method = RequestMethod.GET)
     @ResponseBody
-    public UsersJsonJTableResponse getList() {
+    public UsersJsonJTableResponse getList(@RequestParam(required = false, defaultValue = "0") int jtStartIndex, @RequestParam(required = false, defaultValue = "100") int jtPageSize) {
         UsersJsonJTableResponse response = null;
         List<AdminListItemDto> userList;
 
