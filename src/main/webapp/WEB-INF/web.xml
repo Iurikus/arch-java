@@ -32,6 +32,11 @@
         <url-pattern>*.json</url-pattern>
     </servlet-mapping>
 
+    <!--<servlet-mapping>
+        <servlet-name>archServlet</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>-->
+
     <session-config>
         <session-timeout>
             15

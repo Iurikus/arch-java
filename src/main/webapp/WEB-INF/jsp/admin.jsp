@@ -11,21 +11,23 @@
 <html>
 <head>
     <title>adminPage</title>
-    <script src="jtable.2.4.0/jquery.jtable.js" />
-    <script src="jquery-1.11.2.js"/>
-    <script src="jquery-ui-1.11.4/jquery-ui.js"/>
+    <script type="text/javascript" src="/resources/js/jquery-1.11.2.js"/>
+    <script type="text/javascript" src="/resources/js/jquery-ui-1.11.4/jquery-ui.js"/>
+    <script type="text/javascript" src="/resources/js/jtable.2.4.0/jquery.jtable.js" />
+
+
 
     <script type="text/javascript">
         $(document).ready(function() {
 
-                    $('tableContainer').jtable({
+                    $('#tableContainer').jtable({
                         title : 'my custom title',
                         paging : true,
                         pagingSize : 5,
                         sorting : false,
 
                         actions : {
-                            listAction : 'admin/list'
+                            listAction : 'admin/listall.json'
                         },
 
                         fields: {
