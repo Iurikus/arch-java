@@ -3,6 +3,7 @@ package com.yuri.archjava.service;
 import com.yuri.archjava.dto.AdminListItemDto;
 import com.yuri.archjava.model.AccoutItem;
 import com.yuri.archjava.model.User;
+import com.yuri.archjava.repository.AccountItemRepository;
 import com.yuri.archjava.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,6 +24,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    AccountItemRepository accountItemRepository;
 
     @Override
     public User save(User user) {
@@ -93,5 +97,10 @@ public class UserServiceImpl implements UserService {
         user.setEmail(id+"sse@mail.com");
         user.setRegistrationDate(getCurrentLocalDateTimeWithoutMillis());
         return user;
+    }
+
+    @Override
+    public long getAccountsCount() {
+        return accountItemRepository.count();
     }
 }

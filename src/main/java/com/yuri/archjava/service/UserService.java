@@ -30,4 +30,6 @@ public interface UserService {
     void prepareTestData(int count);
 
     User createTestUser(int id);
+
+    long getAccountsCount();
 }

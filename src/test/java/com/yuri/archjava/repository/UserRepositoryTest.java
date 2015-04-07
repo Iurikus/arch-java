@@ -1,19 +1,14 @@
 package com.yuri.archjava.repository;
 
-import com.yuri.archjava.dto.AdminListItemDto;
 import com.yuri.archjava.model.User;
 import com.yuri.archjava.service.UserService;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import org.joda.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -75,5 +70,13 @@ public class UserRepositoryTest {
         assertEquals(email, user.getEmail());
         assertEquals(password, user.getPassword());
         assertTrue(user.getRegistrationDate() != null);
+    }
+
+    @Test
+    public void findCountOfAccounts() {
+        final int count = 7;
+        userService.deleteAll();
+        userService.prepareTestData(count);
+        assertEquals(count, userService.getAccountsCount());
     }
 }
