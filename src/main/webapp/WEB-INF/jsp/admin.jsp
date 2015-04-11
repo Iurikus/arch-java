@@ -11,9 +11,11 @@
 <html>
 <head>
     <title>adminPage</title>
-    <script type="text/javascript" src="/resources/js/jquery-1.11.2.js"/>
-    <script type="text/javascript" src="/resources/js/jquery-ui-1.11.4/jquery-ui.js"/>
-    <script type="text/javascript" src="/resources/js/jtable.2.4.0/jquery.jtable.js" />
+    <link href="/resources/js/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/resources/js/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="/resources/js/jtable.2.3.1/jquery.jtable.js"></script>
 
 
 
@@ -21,13 +23,16 @@
         $(document).ready(function() {
 
                     $('#tableContainer').jtable({
+                        jqueryuiTheme: true,
                         title : 'my custom title',
                         paging : true,
                         pagingSize : 5,
+                        pageSizes: [2, 3, 5],
                         sorting : false,
 
                         actions : {
-                            listAction : 'admin/listall.json'
+                            listAction : 'http://localhost:8080/admin/listall.json',
+                            createAction : 'http://localhost:8080/admin/create.json'
                         },
 
                         fields: {
@@ -49,19 +54,22 @@
 
                             date: {
                                 title: 'Date',
-                                width: '40%',
-                                type: 'date',
-                                displayFormat: 'dd/mm/yy'
+                                width: '40%'
+
                             }
 
                         }
 
 
 
-                    })
+                    });
+
+                    $('#tableContainer').jtable('load');
 
                 }
-        )
+        );
+
+
 
     </script>
 </head>

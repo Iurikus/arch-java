@@ -40,14 +40,14 @@ public class AdminListController {
     }*/
 
 
-    @RequestMapping(value = "/admin/listall", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/listall", method = RequestMethod.POST)
     @ResponseBody
     public UsersJsonJTableResponse getList(@RequestParam(required = false, defaultValue = "0") int jtStartIndex, @RequestParam(required = false, defaultValue = "100") int jtPageSize) {
         UsersJsonJTableResponse response;
         List<AdminListItemDto> userList;
 
         int listCount = (int) userService.getAccountsCount();
-        userList = userService.getUserRecords(jtStartIndex, jtPageSize);
+        userList = userService.getUserRecords(jtStartIndex/jtPageSize, jtPageSize);
         response = new UsersJsonJTableResponse("OK", userList, listCount);
 
         return response;
