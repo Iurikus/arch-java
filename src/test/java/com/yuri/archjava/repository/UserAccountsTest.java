@@ -30,8 +30,6 @@ public class UserAccountsTest {
 
         User user = userService.createTestUser(1);
 
-//        userService.save(user);
-
         AccoutItem accoutItem = new AccoutItem();
         accoutItem.setAmount(10);
         accoutItem.setUser(user);
@@ -45,10 +43,4 @@ public class UserAccountsTest {
         System.out.println("delete user");
         userService.deleteAll();
     }
-
-    @Test
-    public void pupulateDBTest() {
-        userService.prepareTestData(10);
-    }
-
 }

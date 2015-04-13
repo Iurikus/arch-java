@@ -29,9 +29,15 @@ public class UserServiceImpl implements UserService {
     AccountItemRepository accountItemRepository;
 
     @Override
-    public User save(User user) {
+    public boolean save(User user) {
         System.out.println("UserServiceImpl.save: register="+user.toString());
-        return userRepository.save(user);
+        try {
+            userRepository.save(user);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override

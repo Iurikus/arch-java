@@ -64,6 +64,6 @@
     </filter-mapping>
 
     <welcome-file-list>
-        <welcome-file>admin.html</welcome-file>
+        <welcome-file>registration.html</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -30,6 +30,7 @@ public class User {
 
     @NotNull
     @Email
+    @Column(unique = true)
     private String email;
 
     @NotNull
@@ -37,9 +38,9 @@ public class User {
     private String password;
 
     @Transient
+    @Length(min = 5, max = 10)
     private String password2;
 
-    @NotNull
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     private LocalDateTime registrationDate;
 
@@ -88,8 +89,6 @@ public class User {
         this.password2 = password2;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,7 +101,8 @@ public class User {
         if (!email.equals(user.email)) return false;
         if (!password.equals(user.password)) return false;
         if (password2 != null ? !password2.equals(user.password2) : user.password2 != null) return false;
-        if (!registrationDate.equals(user.registrationDate)) return false;
+        if (registrationDate != null ? !registrationDate.equals(user.registrationDate) : user.registrationDate != null)
+            return false;
 
         return true;
     }
@@ -113,7 +113,7 @@ public class User {
         result = 31 * result + email.hashCode();
         result = 31 * result + password.hashCode();
         result = 31 * result + (password2 != null ? password2.hashCode() : 0);
-        result = 31 * result + registrationDate.hashCode();
+        result = 31 * result + (registrationDate != null ? registrationDate.hashCode() : 0);
         result = 31 * result + (accounts != null ? accounts.hashCode() : 0);
         return result;
     }

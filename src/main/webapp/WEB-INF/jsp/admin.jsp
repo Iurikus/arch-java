@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>adminPage</title>
+    <title><spring:message code="admin.title"/></title>
     <link href="/resources/js/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="/resources/js/jquery-1.11.2.js"></script>

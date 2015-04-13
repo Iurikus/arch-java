@@ -2,6 +2,7 @@ package com.yuri.archjava.repository;
 
 import com.yuri.archjava.model.User;
 import com.yuri.archjava.service.UserService;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,15 @@ public class UserRepositoryTest {
         assertNotNull(userService);
     }
 
+    @After
+    public void cleanup() {
+        System.out.println("cleanup");
+        userService.deleteAll();
+    }
+
     @Test
     public void testSave() {
-
+        System.out.println("testsave");
         String password = "fgsfghshfg";
         String email = "sss@sffff.com";
         LocalDateTime date = getCurrentLocalDateTimeWithoutMillis();
@@ -42,7 +49,7 @@ public class UserRepositoryTest {
         user.setEmail(email);
         user.setPassword(password);
         user.setRegistrationDate(date);
-        user = userService.save(user);
+        userService.save(user);
 
         assertTrue(userService.exists(user.getId()));
         assertTrue(user.getId()>0);
@@ -55,6 +62,27 @@ public class UserRepositoryTest {
     }
 
     @Test
+    public void testDuplicateSave() {
+        System.out.println("testDuplicateSave");
+        String password = "fgsfghshfg";
+        String email = "sss@sffff.com";
+        LocalDateTime date = getCurrentLocalDateTimeWithoutMillis();
+        User user;
+
+        user = new User();
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setRegistrationDate(date);
+        assertTrue(userService.save(user));
+
+        user = new User();
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setRegistrationDate(date);
+        assertTrue(!userService.save(user));
+    }
+
+    @Test
     public void findByEmail() {
         String email = "dfadfs@fdfs.coom";
         String password = "dfasdfagf";
@@ -64,7 +92,7 @@ public class UserRepositoryTest {
         user.setEmail(email);
         user.setPassword(password);
         user.setRegistrationDate(date);
-        user = userService.save(user);
+        userService.save(user);
 
         user = userService.findByEmail(email).get(0);
         assertEquals(email, user.getEmail());
@@ -75,7 +103,6 @@ public class UserRepositoryTest {
     @Test
     public void findCountOfAccounts() {
         final int count = 7;
-        userService.deleteAll();
         userService.prepareTestData(count);
         assertEquals(count, userService.getAccountsCount());
     }
