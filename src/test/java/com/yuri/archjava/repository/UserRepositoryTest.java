@@ -11,6 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import org.joda.time.LocalDateTime;
 
+import javax.transaction.Transactional;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -32,13 +34,14 @@ public class UserRepositoryTest {
         assertNotNull(userService);
     }
 
-    @After
+    /*@After
     public void cleanup() {
         System.out.println("cleanup");
         userService.deleteAll();
-    }
+    }*/
 
     @Test
+    @Transactional
     public void testSave() {
         System.out.println("testsave");
         String password = "fgsfghshfg";
@@ -62,6 +65,7 @@ public class UserRepositoryTest {
     }
 
     @Test
+    @Transactional
     public void testDuplicateSave() {
         System.out.println("testDuplicateSave");
         String password = "fgsfghshfg";
@@ -82,9 +86,11 @@ public class UserRepositoryTest {
         assertTrue(!userService.save(user));
     }
 
+
     @Test
+    @Transactional
     public void findByEmail() {
-        String email = "dfadfs@fdfs.coom";
+        String email = "df3adfs@fdfs.coom";
         String password = "dfasdfagf";
         LocalDateTime date = getCurrentLocalDateTimeWithoutMillis();
 
@@ -101,6 +107,7 @@ public class UserRepositoryTest {
     }
 
     @Test
+    @Transactional
     public void findCountOfAccounts() {
         final int count = 7;
         userService.prepareTestData(count);

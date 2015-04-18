@@ -24,6 +24,7 @@ public class UserAccountsTest {
     UserService userService;
 
     @Test
+    @Transactional
     public void testAddAccount() {
 
         userService.deleteAll();
@@ -41,6 +42,5 @@ public class UserAccountsTest {
         user.setAccounts(Collections.<AccoutItem>emptyList());
         userService.save(user);
         System.out.println("delete user");
-        userService.deleteAll();
     }
 }
