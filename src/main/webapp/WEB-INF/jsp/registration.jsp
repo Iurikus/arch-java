@@ -21,12 +21,12 @@
             <td colspan="3">&nbsp;</td>
         </tr>
         <tr>
-            <td><spring:message code="registration.login"/></td>
+            <td><spring:message code="form.login"/></td>
             <td><form:input path="email"/></td>
             <td><form:errors path="email" cssClass="error"/></td>
         </tr>
         <tr>
-            <td><spring:message code="registration.password"/></td>
+            <td><spring:message code="form.password"/></td>
             <td><form:password path="password"/></td>
             <td><form:errors path="password" cssClass="error"/></td>
         </tr>
@@ -39,8 +39,8 @@
             <td colspan="3">&nbsp;</td>
         </tr>
         <tr>
-            <td><a href="#"><spring:message code="registration.enter"/></a> </td>
-            <td><input type="submit" name=<spring:message code="registration.enter"/>></td>
+            <td><a href="/login.html"><spring:message code="registration.enter"/></a> </td>
+            <td><input type="submit" value=<spring:message code="registration.save"/>></td>
         </tr>
     </table>
 </form:form>

@@ -31,6 +31,7 @@ public class User {
     @NotNull
     @Email
     @Column(unique = true)
+    @Length(min = 6, max = 50)
     private String email;
 
     @NotNull
@@ -40,6 +41,8 @@ public class User {
     @Transient
     @Length(min = 5, max = 10)
     private String password2;
+
+    private boolean admin;
 
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     private LocalDateTime registrationDate;
@@ -96,6 +99,7 @@ public class User {
 
         User user = (User) o;
 
+        if (admin != user.admin) return false;
         if (id != user.id) return false;
         if (accounts != null ? !accounts.equals(user.accounts) : user.accounts != null) return false;
         if (!email.equals(user.email)) return false;
@@ -113,6 +117,7 @@ public class User {
         result = 31 * result + email.hashCode();
         result = 31 * result + password.hashCode();
         result = 31 * result + (password2 != null ? password2.hashCode() : 0);
+        result = 31 * result + (admin ? 1 : 0);
         result = 31 * result + (registrationDate != null ? registrationDate.hashCode() : 0);
         result = 31 * result + (accounts != null ? accounts.hashCode() : 0);
         return result;
@@ -125,6 +130,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", password2='" + password2 + '\'' +
+                ", admin=" + admin +
                 ", registrationDate=" + registrationDate +
                 ", accounts=" + Arrays.toString(accounts.toArray()) +
                 '}';
@@ -136,5 +142,13 @@ public class User {
 
     public void setAccounts(List<AccoutItem> accounts) {
         this.accounts = accounts;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }
