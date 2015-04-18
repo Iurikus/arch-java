@@ -35,7 +35,7 @@ public class RegistrationController {
         if (!result.hasErrors()) {
             if (user.getPassword().equals(user.getPassword2())) {
                 if (userService.save(user)) {
-                    return "redirect:/admin.html";
+                    return "redirect:/balance.html";
                 } else {
                     result.rejectValue("email", "registration.user_duplicate");
                 }

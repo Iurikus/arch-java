@@ -17,8 +17,6 @@
     <script type="text/javascript" src="/resources/js/jquery-ui-1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="/resources/js/jtable.2.3.1/jquery.jtable.js"></script>
 
-
-
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -60,16 +58,11 @@
 
                         }
 
-
-
                     });
 
                     $('#tableContainer').jtable('load');
-
                 }
         );
-
-
 
     </script>
 </head>
@@ -79,7 +72,9 @@
 
 <a href="#"><spring:message code="admin.income_log"/></a>
 
-<div id="tableContainer"/>
+<div id="tableContainer"/><br/>
+
+<a href="/logout.html"><spring:message code="form.exit"/></a>
 
 </body>
 </html>
