@@ -15,7 +15,7 @@
 
     <script type="text/javascript" src="/resources/js/jquery-1.11.2.js"></script>
     <script type="text/javascript" src="/resources/js/jquery-ui-1.11.4/jquery-ui.js"></script>
-    <script type="text/javascript" src="/resources/js/jtable.2.3.1/jquery.jtable.js"></script>
+    <script type="text/javascript" src="/resources/js/jtable.2.4.0/jquery.jtable.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
